@@ -1,4 +1,5 @@
-# produtos-front
+# Produtos-Front
+Baseado no curso VueJS - Consumindo API Rest - Descompila
 
 > A Vue.js project
 
