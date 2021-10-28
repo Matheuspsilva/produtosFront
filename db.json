@@ -3,15 +3,20 @@
     {
       "id": 1,
       "nome": "PS4",
-      "valor": 2000.0,
+      "valor": 2000,
       "quantidade": 20
     },
     {
       "id": 2,
       "nome": "TV",
-      "valor": 2500.0,
+      "valor": 2500,
       "quantidade": 35
+    },
+    {
+      "nome": "Computador",
+      "quantidade": "20",
+      "valor": "2500.50",
+      "id": 4
     }
-
   ]
 }
