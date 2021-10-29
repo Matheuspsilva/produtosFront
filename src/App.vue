@@ -49,7 +49,7 @@
             <td>{{ produto.quantidade }}</td>
             <td>{{ produto.valor }}</td>
             <td>
-              <button class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
+              <button @click="editar(produto)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
               <button class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
             </td>
 
@@ -72,6 +72,7 @@ export default {
   data(){
     return {
       produto:{
+        id: '',
         nome: '',
         quantidade: '',
         valor: ''
@@ -91,15 +92,30 @@ export default {
       })
     },
     salvar(){
-      Produto.salvar(this.produto).then(resposta => {
-        this.produto = {}
-        alert('Produto salvo com sucesso!')
-        this.listar()
-        this.errors = []
-      }).catch(e => {
-        this.errors = e.response.data.errors
-      })
+      if(!this.produto.id){
+        Produto.salvar(this.produto).then(resposta => {
+          this.produto = {}
+          alert('Produto salvo com sucesso!')
+          this.listar()
+          this.errors = []
+        }).catch(e => {
+          this.errors = e.response.data.errors;
+        })
+      }else{
+        Produto.atualizar(this.produto).then(resposta => {
+          this.produto = {}
+          alert('Produto atualizado com sucesso!')
+          this.listar()
+          this.errors = []
+        }).catch(e => {
+          this.errors = e.response.data.errors;
+        })
+      }
+    },
+    editar(produto){
+      this.produto = produto
     }
+
 
   }
 
