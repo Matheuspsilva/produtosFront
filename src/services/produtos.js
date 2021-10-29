@@ -7,6 +7,12 @@ export default{
   },
   salvar:(produto) => {
     return http.post('produtos', produto)
+  },
+  atualizar:(produto) => {
+    return http.put("produtos/"+ produto.id , produto)
+  },
+  apagar:(produto) => {
+    return http.delete("produtos/"+ produto.id , produto)
   }
 
 }
